@@ -19,3 +19,13 @@ Person* create_person(const char *name, int age) {
 return new_person;    
 }
 
+void get_info(const char *role, char *nameout, int *ageout) {
+    printf("Enter name for %s: ", role);
+    gets(nameout);
+    nameout[strcspn(nameout, "\n")] = '\0';
+
+    printf("Enter age for %s", role);
+    scanf("%d", ageout);
+}
+
+
