@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 typedef struct Person {
 char name[50];
@@ -26,6 +28,7 @@ void get_info(const char *role, char *nameout, int *ageout) {
 
     printf("Enter age for %s", role);
     scanf("%d", ageout);
+
 }
 
 
