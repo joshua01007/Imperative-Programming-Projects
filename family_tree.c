@@ -52,9 +52,20 @@ void print_family_relationships(const Person *me){
     if(me->father && me->father->mother){
         printf(" - Grandmother: %s | Age: %d\n", me->father->mother->name, me->father->mother->age);
     }
-
-    
 }
+
+ 
+void free_family_tree(Person *people[], int count) {
+        for (int i = 0; i < count; i++)
+        {
+            free(people[i]);
+        }
+}
+
+
+
+
+
 
 
 
