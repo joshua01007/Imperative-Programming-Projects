@@ -31,6 +31,13 @@ void get_info(const char *role, char *nameout, int *ageout) {
     scanf("%d", ageout);
 }
 
+void link_parents(Person *child, Person *father, Person *mother) {
+        child->father = father;
+        child->mother = mother;
+
+}
+
+
 void print_family_relationships(const Person *me){
     printf("\n === Family Tree Relationships ===\n");
     printf("1. Yourself:\n");
@@ -96,6 +103,13 @@ int main(){
     Person *pgm = people[4];
     Person *mgf = people[5];
     Person *mgm = people[6];
+
+
+    
+    link_parents(me, father, mother);
+    link_parents(father, pgf, pgm);
+    link_parents(mother, mgf, mgm);
+
 
 }
 
