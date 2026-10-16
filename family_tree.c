@@ -17,13 +17,14 @@ Person* create_person(const char *name, int age) {
         new_person->name[sizeof(new_person->name) - 1] = '\0';
         new_person->father = NULL;
         new_person->mother = NULL;
+        new_person->age = age;
     }
 return new_person;    
 }
 
 void get_info(const char *role, char *nameout, int *ageout) {
     printf("Enter name for %s: ", role);
-    gets(nameout);
+    fgets(nameout, 50, stdin);
     nameout[strcspn(nameout, "\n")] = '\0';
 
     printf("Enter age for %s", role);
@@ -40,7 +41,7 @@ void print_family_relationships(const Person *me){
         printf(" - Father: %s | Age: %d\n", me->father->name, me->father->age);
     }
     if(me->mother){
-        (" - Mother: %s | Age: %d\n", me->mother->name, me->mother->age);
+        printf(" - Mother: %s | Age: %d\n", me->mother->name, me->mother->age);
     }
 
     printf("3. Paternal Grandparents (via Fathers Pointers):\n");
@@ -64,6 +65,39 @@ void free_family_tree(Person *people[], int count) {
 
 
 
+int main(){
+    Person *people[7];
+    char name[50];
+    int age;
+
+
+    const char *role[7] = {
+        "Yourself",
+        "Father",
+        "Mother",
+        "Paternal Grandfather",
+        "Paternal Grandmother",
+        "Maternal Grandfather",
+        "Mathernal Grandmother"
+
+    };
+
+
+    for (int i = 0; i < 7; i++)
+    {
+        get_info(role[i], name, &age);
+        people[i] = create_person(name, age);
+    }
+
+    Person *me = people[0];
+    Person *father = people[1];
+    Person *mother = people[2];
+    Person *pgf = people[3];
+    Person *pgm = people[4];
+    Person *mgf = people[5];
+    Person *mgm = people[6];
+
+}
 
 
 
