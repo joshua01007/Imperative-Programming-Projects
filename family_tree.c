@@ -110,7 +110,13 @@ int main(){
     link_parents(father, pgf, pgm);
     link_parents(mother, mgf, mgm);
 
+    
+    print_family_relationships(me);
 
+
+    free_family_tree(people, 7);
+
+    return 0;
 }
 
 
