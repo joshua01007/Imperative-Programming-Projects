@@ -28,7 +28,33 @@ void get_info(const char *role, char *nameout, int *ageout) {
 
     printf("Enter age for %s", role);
     scanf("%d", ageout);
-
 }
+
+void print_family_relationships(const Person *me){
+    printf("\n === Family Tree Relationships ===\n");
+    printf("1. Yourself:\n");
+    printf(" - Name: %s | Age: %d\n", me->name, me->age);
+
+    printf("2. Parents:\n");
+    if(me->father){
+        printf(" - Father: %s | Age: %d\n", me->father->name, me->father->age);
+    }
+    if(me->mother){
+        (" - Mother: %s | Age: %d\n", me->mother->name, me->mother->age);
+    }
+
+    printf("3. Paternal Grandparents (via Fathers Pointers):\n");
+    if(me->father && me->father->father)
+    {
+        printf(" - Grandfather: %s | Age: %d\n", me->father->father->name, me->father->father->age);
+    }
+
+    if(me->father && me->father->mother){
+        printf(" - Grandmother: %s | Age: %d\n", me->father->mother->name, me->father->mother->age);
+    }
+
+    
+}
+
 
 
