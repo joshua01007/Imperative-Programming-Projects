@@ -27,7 +27,7 @@
         fgets(nameout, 50, stdin);
         nameout[strcspn(nameout, "\n")] = '\0';
 
-        printf("Enter age for %s", role);
+        printf("Enter age for %s: ", role);
         scanf("%d", ageout);
     
         int c;                                                                    //
